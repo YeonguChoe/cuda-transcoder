@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ubuntu/filesystem/cuda-transcoder/decoder.cu" "CMakeFiles/cuda-transcoder.dir/decoder.cu.o" "gcc" "CMakeFiles/cuda-transcoder.dir/decoder.cu.o.d"
+  "/home/ubuntu/filesystem/cuda-transcoder/encoder.cu" "CMakeFiles/cuda-transcoder.dir/encoder.cu.o" "gcc" "CMakeFiles/cuda-transcoder.dir/encoder.cu.o.d"
+  "/home/ubuntu/filesystem/cuda-transcoder/transcoder.cu" "CMakeFiles/cuda-transcoder.dir/transcoder.cu.o" "gcc" "CMakeFiles/cuda-transcoder.dir/transcoder.cu.o.d"
   "/home/ubuntu/filesystem/cuda-transcoder/main.cpp" "CMakeFiles/cuda-transcoder.dir/main.cpp.o" "gcc" "CMakeFiles/cuda-transcoder.dir/main.cpp.o.d"
   )
 

@@ -153,6 +153,30 @@ decoder.cu.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/decoder.cu.s
 .PHONY : decoder.cu.s
 
+encoder.o: encoder.cu.o
+.PHONY : encoder.o
+
+# target to build an object file
+encoder.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/encoder.cu.o
+.PHONY : encoder.cu.o
+
+encoder.i: encoder.cu.i
+.PHONY : encoder.i
+
+# target to preprocess a source file
+encoder.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/encoder.cu.i
+.PHONY : encoder.cu.i
+
+encoder.s: encoder.cu.s
+.PHONY : encoder.s
+
+# target to generate assembly for a file
+encoder.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/encoder.cu.s
+.PHONY : encoder.cu.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -177,6 +201,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+transcoder.o: transcoder.cu.o
+.PHONY : transcoder.o
+
+# target to build an object file
+transcoder.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/transcoder.cu.o
+.PHONY : transcoder.cu.o
+
+transcoder.i: transcoder.cu.i
+.PHONY : transcoder.i
+
+# target to preprocess a source file
+transcoder.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/transcoder.cu.i
+.PHONY : transcoder.cu.i
+
+transcoder.s: transcoder.cu.s
+.PHONY : transcoder.s
+
+# target to generate assembly for a file
+transcoder.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/transcoder.cu.s
+.PHONY : transcoder.cu.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -189,9 +237,15 @@ help:
 	@echo "... decoder.o"
 	@echo "... decoder.i"
 	@echo "... decoder.s"
+	@echo "... encoder.o"
+	@echo "... encoder.i"
+	@echo "... encoder.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... transcoder.o"
+	@echo "... transcoder.i"
+	@echo "... transcoder.s"
 .PHONY : help
 
 

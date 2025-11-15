@@ -1,4 +1,4 @@
-CMakeFiles/cuda-transcoder.dir/decoder.cu.o : /home/ubuntu/filesystem/cuda-transcoder/decoder.cu \
+CMakeFiles/cuda-transcoder.dir/encoder.cu.o : /home/ubuntu/filesystem/cuda-transcoder/encoder.cu \
     /usr/include/stdc-predef.h \
     /usr/include/cuda_runtime.h \
     /usr/include/crt/host_config.h \
@@ -184,12 +184,4 @@ CMakeFiles/cuda-transcoder.dir/decoder.cu.o : /home/ubuntu/filesystem/cuda-trans
     /usr/include/device_launch_parameters.h \
     /usr/include/c++/13/utility \
     /usr/include/c++/13/bits/stl_relops.h \
-    /usr/include/c++/13/initializer_list \
-    /home/ubuntu/filesystem/cuda-transcoder/Interface/nvcuvid.h \
-    /home/ubuntu/filesystem/cuda-transcoder/Interface/cuviddec.h \
-    /usr/include/cuda.h \
-    /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
-    /usr/include/stdint.h \
-    /usr/include/x86_64-linux-gnu/bits/wchar.h \
-    /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
-    /usr/include/x86_64-linux-gnu/bits/stdint-least.h
+    /usr/include/c++/13/initializer_list

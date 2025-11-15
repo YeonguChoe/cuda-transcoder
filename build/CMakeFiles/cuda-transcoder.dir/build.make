@@ -98,23 +98,57 @@ CMakeFiles/cuda-transcoder.dir/decoder.cu.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/cuda-transcoder.dir/decoder.cu.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_ASSEMBLY_SOURCE
 
+CMakeFiles/cuda-transcoder.dir/encoder.cu.o: CMakeFiles/cuda-transcoder.dir/flags.make
+CMakeFiles/cuda-transcoder.dir/encoder.cu.o: CMakeFiles/cuda-transcoder.dir/includes_CUDA.rsp
+CMakeFiles/cuda-transcoder.dir/encoder.cu.o: /home/ubuntu/filesystem/cuda-transcoder/encoder.cu
+CMakeFiles/cuda-transcoder.dir/encoder.cu.o: CMakeFiles/cuda-transcoder.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ubuntu/filesystem/cuda-transcoder/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CUDA object CMakeFiles/cuda-transcoder.dir/encoder.cu.o"
+	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/cuda-transcoder.dir/encoder.cu.o -MF CMakeFiles/cuda-transcoder.dir/encoder.cu.o.d -x cu -rdc=true -c /home/ubuntu/filesystem/cuda-transcoder/encoder.cu -o CMakeFiles/cuda-transcoder.dir/encoder.cu.o
+
+CMakeFiles/cuda-transcoder.dir/encoder.cu.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/cuda-transcoder.dir/encoder.cu.i"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_PREPROCESSED_SOURCE
+
+CMakeFiles/cuda-transcoder.dir/encoder.cu.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/cuda-transcoder.dir/encoder.cu.s"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_ASSEMBLY_SOURCE
+
+CMakeFiles/cuda-transcoder.dir/transcoder.cu.o: CMakeFiles/cuda-transcoder.dir/flags.make
+CMakeFiles/cuda-transcoder.dir/transcoder.cu.o: CMakeFiles/cuda-transcoder.dir/includes_CUDA.rsp
+CMakeFiles/cuda-transcoder.dir/transcoder.cu.o: /home/ubuntu/filesystem/cuda-transcoder/transcoder.cu
+CMakeFiles/cuda-transcoder.dir/transcoder.cu.o: CMakeFiles/cuda-transcoder.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ubuntu/filesystem/cuda-transcoder/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CUDA object CMakeFiles/cuda-transcoder.dir/transcoder.cu.o"
+	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/cuda-transcoder.dir/transcoder.cu.o -MF CMakeFiles/cuda-transcoder.dir/transcoder.cu.o.d -x cu -rdc=true -c /home/ubuntu/filesystem/cuda-transcoder/transcoder.cu -o CMakeFiles/cuda-transcoder.dir/transcoder.cu.o
+
+CMakeFiles/cuda-transcoder.dir/transcoder.cu.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/cuda-transcoder.dir/transcoder.cu.i"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_PREPROCESSED_SOURCE
+
+CMakeFiles/cuda-transcoder.dir/transcoder.cu.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/cuda-transcoder.dir/transcoder.cu.s"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_ASSEMBLY_SOURCE
+
 # Object files for target cuda-transcoder
 cuda__transcoder_OBJECTS = \
 "CMakeFiles/cuda-transcoder.dir/main.cpp.o" \
-"CMakeFiles/cuda-transcoder.dir/decoder.cu.o"
+"CMakeFiles/cuda-transcoder.dir/decoder.cu.o" \
+"CMakeFiles/cuda-transcoder.dir/encoder.cu.o" \
+"CMakeFiles/cuda-transcoder.dir/transcoder.cu.o"
 
 # External object files for target cuda-transcoder
 cuda__transcoder_EXTERNAL_OBJECTS =
 
 CMakeFiles/cuda-transcoder.dir/cmake_device_link.o: CMakeFiles/cuda-transcoder.dir/main.cpp.o
 CMakeFiles/cuda-transcoder.dir/cmake_device_link.o: CMakeFiles/cuda-transcoder.dir/decoder.cu.o
+CMakeFiles/cuda-transcoder.dir/cmake_device_link.o: CMakeFiles/cuda-transcoder.dir/encoder.cu.o
+CMakeFiles/cuda-transcoder.dir/cmake_device_link.o: CMakeFiles/cuda-transcoder.dir/transcoder.cu.o
 CMakeFiles/cuda-transcoder.dir/cmake_device_link.o: CMakeFiles/cuda-transcoder.dir/build.make
 CMakeFiles/cuda-transcoder.dir/cmake_device_link.o: /home/ubuntu/filesystem/cuda-transcoder/Lib/linux/stubs/x86_64/libnvidia-encode.so
 CMakeFiles/cuda-transcoder.dir/cmake_device_link.o: /home/ubuntu/filesystem/cuda-transcoder/Lib/linux/stubs/x86_64/libnvcuvid.so
 CMakeFiles/cuda-transcoder.dir/cmake_device_link.o: CMakeFiles/cuda-transcoder.dir/deviceLinkLibs.rsp
 CMakeFiles/cuda-transcoder.dir/cmake_device_link.o: CMakeFiles/cuda-transcoder.dir/deviceObjects1.rsp
 CMakeFiles/cuda-transcoder.dir/cmake_device_link.o: CMakeFiles/cuda-transcoder.dir/dlink.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ubuntu/filesystem/cuda-transcoder/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CUDA device code CMakeFiles/cuda-transcoder.dir/cmake_device_link.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ubuntu/filesystem/cuda-transcoder/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CUDA device code CMakeFiles/cuda-transcoder.dir/cmake_device_link.o"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cuda-transcoder.dir/dlink.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -124,19 +158,23 @@ CMakeFiles/cuda-transcoder.dir/build: CMakeFiles/cuda-transcoder.dir/cmake_devic
 # Object files for target cuda-transcoder
 cuda__transcoder_OBJECTS = \
 "CMakeFiles/cuda-transcoder.dir/main.cpp.o" \
-"CMakeFiles/cuda-transcoder.dir/decoder.cu.o"
+"CMakeFiles/cuda-transcoder.dir/decoder.cu.o" \
+"CMakeFiles/cuda-transcoder.dir/encoder.cu.o" \
+"CMakeFiles/cuda-transcoder.dir/transcoder.cu.o"
 
 # External object files for target cuda-transcoder
 cuda__transcoder_EXTERNAL_OBJECTS =
 
 cuda-transcoder: CMakeFiles/cuda-transcoder.dir/main.cpp.o
 cuda-transcoder: CMakeFiles/cuda-transcoder.dir/decoder.cu.o
+cuda-transcoder: CMakeFiles/cuda-transcoder.dir/encoder.cu.o
+cuda-transcoder: CMakeFiles/cuda-transcoder.dir/transcoder.cu.o
 cuda-transcoder: CMakeFiles/cuda-transcoder.dir/build.make
 cuda-transcoder: /home/ubuntu/filesystem/cuda-transcoder/Lib/linux/stubs/x86_64/libnvidia-encode.so
 cuda-transcoder: /home/ubuntu/filesystem/cuda-transcoder/Lib/linux/stubs/x86_64/libnvcuvid.so
 cuda-transcoder: CMakeFiles/cuda-transcoder.dir/cmake_device_link.o
 cuda-transcoder: CMakeFiles/cuda-transcoder.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ubuntu/filesystem/cuda-transcoder/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable cuda-transcoder"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ubuntu/filesystem/cuda-transcoder/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable cuda-transcoder"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cuda-transcoder.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
