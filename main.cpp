@@ -1,8 +1,9 @@
+#include <iostream>
 
+int main()
+{
 
-
-int main(){
-
+    std::cout << "Build" << std::endl;
 
     return 0;
 }

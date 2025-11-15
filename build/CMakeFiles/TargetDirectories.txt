@@ -1,0 +1,3 @@
+/home/ubuntu/filesystem/cuda-transcoder/build/CMakeFiles/cuda-transcoder.dir
+/home/ubuntu/filesystem/cuda-transcoder/build/CMakeFiles/edit_cache.dir
+/home/ubuntu/filesystem/cuda-transcoder/build/CMakeFiles/rebuild_cache.dir

@@ -1,18 +1,53 @@
 cmake_minimum_required(VERSION 3.18)
-project(transcoder LANGUAGES CUDA CXX)
+project(cuda_transcoder LANGUAGES C CXX CUDA)
 
-find_package(CUDAToolkit REQUIRED)
+# --------------------------------------------------------------
+# CUDA configuration
+# --------------------------------------------------------------
+set(CMAKE_CUDA_STANDARD 17)
+set(CMAKE_CUDA_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(transcoder main.cpp decoder.cu)
 
-# 헤더 파일 경로만 지정
-target_include_directories(transcoder PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/ffnvcodec
-    ${CUDAToolkit_INCLUDE_DIRS}
+# --------------------------------------------------------------
+# Set Video Codec SDK location
+# --------------------------------------------------------------
+set(SDK_INCLUDE "${CMAKE_SOURCE_DIR}/Interface")
+set(SDK_LIB "${CMAKE_SOURCE_DIR}/Lib/linux/stubs/x86_64")
+
+include_directories(${SDK_INCLUDE})
+link_directories(${SDK_LIB})
+
+# --------------------------------------------------------------
+# Search for NVENC/NVDEC library
+# Include:
+#   - libnvidia-encode.so
+#   - libnvcuvid.so
+# --------------------------------------------------------------
+find_library(NVENC_LIB nvidia-encode PATHS ${SDK_LIB})
+find_library(NVCUVID_LIB nvcuvid PATHS ${SDK_LIB})
+
+
+# --------------------------------------------------------------
+# Set executable files
+# --------------------------------------------------------------
+add_executable(cuda-transcoder
+    main.cpp
+    decoder.cu
 )
 
-# 런타임 라이브러리 링킹 (필수)
-target_link_libraries(transcoder
-    CUDA::cudart # CUDA 런타임
-    CUDA::cuda_driver # CUDA 드라이버
+# CUDA compilation file setting
+set_target_properties(cuda-transcoder PROPERTIES
+    CUDA_SEPARABLE_COMPILATION ON
+)
+
+# --------------------------------------------------------------
+# Link
+# --------------------------------------------------------------
+target_link_libraries(cuda-transcoder
+    ${NVENC_LIB}
+    ${NVCUVID_LIB}
+    cuda
+    cudart
 )

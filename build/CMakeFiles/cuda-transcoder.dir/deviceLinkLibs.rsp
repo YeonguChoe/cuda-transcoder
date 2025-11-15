@@ -1,0 +1,1 @@
+  -L"/home/ubuntu/filesystem/cuda-transcoder/Lib/linux/stubs/x86_64"  -L"/usr/lib/x86_64-linux-gnu/stubs"   -lcuda -lcudart -lcudadevrt -lcudart_static -lrt -lpthread -ldl 
