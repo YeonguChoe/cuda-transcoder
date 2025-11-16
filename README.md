@@ -1,5 +1,6 @@
 # CUDA Transcoder
 
+NVDEC -> Transcoder Kernel -> NVENC
 
 
 #### Reference
