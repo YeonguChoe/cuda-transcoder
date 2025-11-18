@@ -1,10 +1,7 @@
-# CUDA Transcoder
-
-- NVDEC -> Transcoder Kernel -> NVENC
+# Video Transcoder
+- Format = Codec + Container
 - Decoding: Decompress to frames
 - Transcode: Resize frames
 - Encoding: compress frames
-
-- Format = Codec + Container
 
 #### Reference

@@ -22,21 +22,35 @@ int main(int argc, char *argv[])
     avformat_find_stream_info(file_context, nullptr);
     av_dump_format(file_context, 0, filename, 0);
 
-    AVStream *file_stream = nullptr;
+    // find video stream
+    AVStream *video_stream = nullptr;
     int video_stream_index = -1;
     for (unsigned int i = 0; i < file_context->nb_streams; i++)
     {
         if (file_context->streams[i]->codecpar->codec_type == AVMEDIA_TYPE_VIDEO)
         {
-            file_stream = file_context->streams[i];
+            video_stream = file_context->streams[i];
             video_stream_index = i;
+            break;
+        }
+    }
+
+    // find audio stream
+    AVStream *audio_stream = nullptr;
+    int audio_stream_index = -1;
+    for (unsigned int i = 0; i < file_context->nb_streams; i++)
+    {
+        if (file_context->streams[i]->codecpar->codec_type == AVMEDIA_TYPE_AUDIO)
+        {
+            audio_stream = file_context->streams[i];
+            audio_stream_index = i;
             break;
         }
     }
 
     ///////////////////////// Prepare Decoder /////////////////////////
     // video's codec
-    AVCodecParameters *file_codec_parameters = file_stream->codecpar;
+    AVCodecParameters *file_codec_parameters = video_stream->codecpar;
     const AVCodec *video_codec = avcodec_find_decoder(file_codec_parameters->codec_id);
     AVCodecContext *decoder_context = avcodec_alloc_context3(video_codec);
     avcodec_parameters_to_context(decoder_context, file_codec_parameters);
@@ -48,14 +62,23 @@ int main(int argc, char *argv[])
     encoder_context->height = 360;
     encoder_context->width = 720;
     encoder_context->pix_fmt = AV_PIX_FMT_YUV420P;
-    encoder_context->time_base = file_stream->time_base;
+    encoder_context->time_base = video_stream->time_base;
     avcodec_open2(encoder_context, encoder_codec, nullptr);
 
     // create container
     AVFormatContext *output_context = nullptr;
     avformat_alloc_output_context2(&output_context, nullptr, nullptr, "output.mp4");
-    AVStream *stream = avformat_new_stream(output_context, nullptr);
-    avcodec_parameters_from_context(stream->codecpar, encoder_context);
+
+    // video output stream
+    AVStream *video_out_stream = avformat_new_stream(output_context, nullptr);
+    avcodec_parameters_from_context(video_out_stream->codecpar, encoder_context);
+    video_out_stream->time_base = encoder_context->time_base;
+
+    // audio output stream
+    AVStream *audio_out_stream = avformat_new_stream(output_context, nullptr);
+    avcodec_parameters_copy(audio_out_stream->codecpar, audio_stream->codecpar);
+    audio_out_stream->time_base = audio_stream->time_base;
+
     avio_open(&output_context->pb, "output.mp4", AVIO_FLAG_WRITE);
     avformat_write_header(output_context, nullptr);
 
@@ -96,6 +119,15 @@ int main(int argc, char *argv[])
                 av_packet_free(&output_packet);
             }
         }
+        else if (packet->stream_index == audio_stream_index && audio_out_stream)
+        {
+            AVPacket *audio_packet = av_packet_clone(packet);
+            audio_packet->stream_index = audio_out_stream->index;
+            av_packet_rescale_ts(audio_packet, audio_stream->time_base, audio_out_stream->time_base);
+            av_interleaved_write_frame(output_context, audio_packet);
+            av_packet_free(&audio_packet);
+        }
+
         av_packet_unref(packet);
     }
 
