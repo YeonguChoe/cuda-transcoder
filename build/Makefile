@@ -57,10 +57,10 @@ RM = /opt/cmake-4.2.0-rc2-linux-x86_64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ychoe/Desktop/cuda-transcoder
+CMAKE_SOURCE_DIR = /home/ychoe/Desktop/transcoder
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ychoe/Desktop/cuda-transcoder/build
+CMAKE_BINARY_DIR = /home/ychoe/Desktop/transcoder/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,10 +87,17 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ychoe/Desktop/cuda-transcoder/build/CMakeFiles /home/ychoe/Desktop/cuda-transcoder/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ychoe/Desktop/transcoder/build/CMakeFiles /home/ychoe/Desktop/transcoder/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ychoe/Desktop/cuda-transcoder/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ychoe/Desktop/transcoder/build/CMakeFiles 0
 .PHONY : all
+
+# The main codegen target
+codegen: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ychoe/Desktop/transcoder/build/CMakeFiles /home/ychoe/Desktop/transcoder/build//CMakeFiles/progress.marks
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 codegen
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ychoe/Desktop/transcoder/build/CMakeFiles 0
+.PHONY : codegen
 
 # The main clean target
 clean:
@@ -117,72 +124,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named cuda-transcoder
+# Target rules for targets named transcoder
 
 # Build rule for target.
-cuda-transcoder: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cuda-transcoder
-.PHONY : cuda-transcoder
+transcoder: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 transcoder
+.PHONY : transcoder
 
 # fast build rule for target.
-cuda-transcoder/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/build
-.PHONY : cuda-transcoder/fast
-
-decoder.o: decoder.cpp.o
-.PHONY : decoder.o
-
-# target to build an object file
-decoder.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/decoder.cpp.o
-.PHONY : decoder.cpp.o
-
-decoder.i: decoder.cpp.i
-.PHONY : decoder.i
-
-# target to preprocess a source file
-decoder.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/decoder.cpp.i
-.PHONY : decoder.cpp.i
-
-decoder.s: decoder.cpp.s
-.PHONY : decoder.s
-
-# target to generate assembly for a file
-decoder.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/decoder.cpp.s
-.PHONY : decoder.cpp.s
-
-encoder.o: encoder.cpp.o
-.PHONY : encoder.o
-
-# target to build an object file
-encoder.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/encoder.cpp.o
-.PHONY : encoder.cpp.o
-
-encoder.i: encoder.cpp.i
-.PHONY : encoder.i
-
-# target to preprocess a source file
-encoder.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/encoder.cpp.i
-.PHONY : encoder.cpp.i
-
-encoder.s: encoder.cpp.s
-.PHONY : encoder.s
-
-# target to generate assembly for a file
-encoder.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/encoder.cpp.s
-.PHONY : encoder.cpp.s
+transcoder/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/transcoder.dir/build.make CMakeFiles/transcoder.dir/build
+.PHONY : transcoder/fast
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/transcoder.dir/build.make CMakeFiles/transcoder.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -190,7 +149,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/transcoder.dir/build.make CMakeFiles/transcoder.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -198,32 +157,32 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/transcoder.dir/build.make CMakeFiles/transcoder.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-transcoder.o: transcoder.cu.o
+transcoder.o: transcoder.cpp.o
 .PHONY : transcoder.o
 
 # target to build an object file
-transcoder.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/transcoder.cu.o
-.PHONY : transcoder.cu.o
+transcoder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/transcoder.dir/build.make CMakeFiles/transcoder.dir/transcoder.cpp.o
+.PHONY : transcoder.cpp.o
 
-transcoder.i: transcoder.cu.i
+transcoder.i: transcoder.cpp.i
 .PHONY : transcoder.i
 
 # target to preprocess a source file
-transcoder.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/transcoder.cu.i
-.PHONY : transcoder.cu.i
+transcoder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/transcoder.dir/build.make CMakeFiles/transcoder.dir/transcoder.cpp.i
+.PHONY : transcoder.cpp.i
 
-transcoder.s: transcoder.cu.s
+transcoder.s: transcoder.cpp.s
 .PHONY : transcoder.s
 
 # target to generate assembly for a file
-transcoder.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda-transcoder.dir/build.make CMakeFiles/cuda-transcoder.dir/transcoder.cu.s
-.PHONY : transcoder.cu.s
+transcoder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/transcoder.dir/build.make CMakeFiles/transcoder.dir/transcoder.cpp.s
+.PHONY : transcoder.cpp.s
 
 # Help Target
 help:
@@ -231,15 +190,10 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... codegen"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... cuda-transcoder"
-	@echo "... decoder.o"
-	@echo "... decoder.i"
-	@echo "... decoder.s"
-	@echo "... encoder.o"
-	@echo "... encoder.i"
-	@echo "... encoder.s"
+	@echo "... transcoder"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

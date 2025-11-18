@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/transcoder.dir/link.d CMakeFiles/transcoder.dir/main.cpp.o CMakeFiles/transcoder.dir/transcoder.cpp.o -o transcoder   -L/home/ychoe/Desktop/transcoder/ffmpeg/lib  -Wl,-rpath,/home/ychoe/Desktop/transcoder/ffmpeg/lib -lavutil -lswscale -lswresample -lavcodec -lavformat -lavdevice -lavfilter
